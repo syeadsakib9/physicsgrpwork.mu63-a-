@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<math.h>
+#define pi 3.1416
+int main(){
+    double L,T,d; // L=lambda,T=theta in degree
+    scanf("%lf %lf %lf",&L,&T,&d);
+
+    if(L<380 || L>750){
+        printf("Out of the range.Please enter a valid number.\n");
+        return 0;
+    }
+    double Trad = T*pi/180.0;//Trad=Theta in radian
+
+    double sinValue = sin(Trad);
+    double maxmValue = (d * sinValue / L) *1e6;
+
+    int m = (int) round (maxmValue);
+    printf("%d-th order maxima\n",m);
+
+    return 0;
+}
